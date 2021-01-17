@@ -1,0 +1,26 @@
+{
+  "name": "animais-eslint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "webpack": "^5.13.0",
+    "webpack-cli": "^4.3.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "whatwg-fetch": "^3.5.0"
+  }
+}
