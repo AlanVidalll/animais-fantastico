@@ -27,8 +27,6 @@ modal.init();
 const tooltip  = new Tooltip('[data-tolltip]');
 tooltip.init();
 
-
-
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
