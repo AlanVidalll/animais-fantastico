@@ -10,6 +10,7 @@ import initFuncionamento from './modules/funcionamento.js'
 import initFetchAniamis from './modules/fetch-animais.js'
 import initFetchBiticoin from './modules/fetch-biticoin.js'
 import initAnimacaoScroll from './modules/scroll-animacao.js'
+import fetchAnimais from './modules/fetch-animais.js'
 
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^= "#"]');
@@ -30,6 +31,7 @@ tooltip.init();
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
-initFetchAniamis();
 initFetchBiticoin();
 initAnimacaoScroll();
+
+fetchAnimais('../../animais-api.json', '.numeros-grid')
