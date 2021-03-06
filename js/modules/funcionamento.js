@@ -3,6 +3,7 @@ export default class Funcionamento {
     this.funcionamento = document.querySelector(funcionamento);
     this.activeClass = activeClass
   }
+  
   dadosFuncionamento() {
     this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
     this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
@@ -14,7 +15,6 @@ export default class Funcionamento {
     this.horarioAgora = this.dataAgora.getUTCHours() - 3;
   }
 
-
   estaAberto() {
     const semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
     const horarioAberto = (this.horarioAgora >= this.horarioSemana[0] && this.horarioAgora < this.horarioSemana[1]);
@@ -22,11 +22,10 @@ export default class Funcionamento {
   }
 
   ativaAberto() {
-    if (this.estaAberto()){
+    if (this.estaAberto()) {
       this.funcionamento.classList.add(this.activeClass);
+    }
   }
-}
-
 
   init() {
     if (this.funcionamento) {
