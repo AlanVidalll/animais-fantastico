@@ -1,25 +1,46 @@
 import outsideClick from './outsideClick.js'
 
-export default function initDropdownMenu() {
+export default class DropdownMenu {
+  constructor(dropdownMenus, events) {
+    this.dropdownMenus = document.querySelectorAll(dropdownMenus);
 
-  const dropdownMenus = document.querySelectorAll('[data-dropdown]')
+    // Define touchstart e click como argumento padrão de events caso o usuário não defina
+    if (events === undefined) {
+      this.events = ['touchstart', 'click']
+    } else {
+      this.events = events
+    }
+    this.activeClass = 'active';
 
+    this.activeDropdownMenu = this.activeDropdownMenu.bind(this);
+  }
 
-  dropdownMenus.forEach((menu) => {
-    //menu.addEventListener('click', handleClick);
-    //menu.addEventListener('touchstart', handleClick);
-    // posso criiar um evento por vez ou com array usando foreach como está abaixo.
-    ['touchstart', 'click'].forEach((userEvent) => {
-      menu.addEventListener(userEvent, handleClick);
-    })
-  })
-
-  function handleClick(event) {
+  //Ativa o dropdownmenu e adiciona a função que oberserva o clique fora dele
+  activeDropdownMenu(event) {
     event.preventDefault();
-    this.classList.add('active')
-    outsideClick(this, ['touchstart', 'click'], () => {
-      this.classList.remove('active');
+    const element = event.currentTarget
+    element.classList.add(this.activeClass)
+    outsideClick(element, this.events, () => {
+      element.classList.remove(this.activeClass);
     });
   }
 
+  // Adiciona os eventos ao dropdownmenu
+  addDropdownMenusEvent() {
+    this.dropdownMenus.forEach((menu) => {
+      //menu.addEventListener('click', handleClick);
+      //menu.addEventListener('touchstart', handleClick);
+      // posso criiar um evento por vez ou com array usando foreach como está abaixo.
+      this.events.forEach((userEvent) => {
+        menu.addEventListener(userEvent, this.activeDropdownMenu);
+      })
+    })
+  }
+
+  init() {
+    if (this.dropdownMenus.length) {
+      this.addDropdownMenusEvent()
+    }
+    return this;
+  }
 }
