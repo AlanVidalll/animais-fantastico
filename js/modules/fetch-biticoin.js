@@ -9,3 +9,5 @@ export default function fetchBiticoin(url, target) {
     console.log(Error(error));
   })
 }
+
+
