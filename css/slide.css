@@ -37,7 +37,7 @@
   justify-content: center;
   flex-wrap: wrap;
   grid-column: 1/-1;
-  margin-button: 20px;
+  margin-bottom: 20px;
 }
 
 .custom-controls li{
