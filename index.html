@@ -9,8 +9,7 @@
     document.documentElement.className += ' js';
   </script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2? family = IBM + Plex + Mono: wght @ 100 & display = swap "
-    rel=" stylesheet ">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:Plairfair+Display+SC" rel=" stylesheet ">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -30,7 +29,7 @@
         </li>
         <li><a href="#faq">Faq</a></li>
         <li><a href="#contato">Contato</a></li>
-        <li><a data-modal="abrir" href="login.html">Login →</a></li>
+        <li><a data-modal="abrir" href="login.html">Login<span class="arrow-black"></span></a></li>
         <a href=""></a>
       </ul>
     </nav>
@@ -225,7 +224,7 @@
 
   <section class="modal-container " data-modal="container">
     <div class="modal">
-      <button class="fechar" data-modal="fechar">X</button>
+      <button class="fechar" data-modal="fechar"></button>
       <form action="">
         <label for="email">E-mail</label>
         <input type="text" for="email" id="email">
